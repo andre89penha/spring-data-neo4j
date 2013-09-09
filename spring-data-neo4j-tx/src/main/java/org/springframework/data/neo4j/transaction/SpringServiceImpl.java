@@ -16,6 +16,7 @@
 
 package org.springframework.data.neo4j.transaction;
 
+import org.neo4j.kernel.api.KernelAPI;
 import org.neo4j.kernel.impl.core.TransactionState;
 import org.neo4j.kernel.impl.transaction.AbstractTransactionManager;
 import org.neo4j.kernel.impl.transaction.TransactionStateFactory;
@@ -155,5 +156,10 @@ class SpringServiceImpl extends AbstractTransactionManager
     @Autowired
     public void setTransactionManager(PlatformTransactionManager transactionManager) {
         this.transactionManager = transactionManager;
+    }
+
+    @Override
+    public void setKernel(KernelAPI kernelAPI) {
+        // no op ?
     }
 }
